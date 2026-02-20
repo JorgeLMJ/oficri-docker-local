@@ -1,0 +1,26 @@
+-- DROP DATABASE login;
+-- CREATE DATABASE login;
+USE login;
+-- ==========================================
+-- 1. INSERTAR USUARIOS (con contraseñas encriptadas válidas)
+-- ==========================================
+INSERT INTO usuarios (id, email, nombre, password, rol, token_expiration) VALUES
+(2, 'ana.lopez@laboratorio.com', 'Ana López Barnechea', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Auxiliar de Toxicologia', NOW()),
+(3, 'alan.cantero@laboratorio.com', 'Alan Cantero Jimenez', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Quimico Farmaceutico', NOW()),
+(4, 'juan.tavara@laboratorio.com', 'Juan Tavara Madrid', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Auxiliar de Dosaje', NOW()),
+(5, 'ana2.lopez@laboratorio.com', 'Ana2 López2 Barnechea2', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Auxiliar de Toxicologia', NOW()),
+(6, 'alan2.cantero@laboratorio.com', 'Alan2 Cantero2 Jimenez2', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Quimico Farmaceutico', NOW()),
+(7, 'juan2.tavara@laboratorio.com', 'Juan2 Tavara2 Madrid2', '$2a$10$eAcJ6Z9sXKQV4kFzWjY7UO5qgE8hRfGvHbTmI3xwLpDnN9dQlSd5i', 'Auxiliar de Dosaje', NOW());
+
+-- ==========================================
+-- 2. INSERTAR EMPLEADOS (relacionados con los usuarios)
+-- ==========================================
+-- Aseguramos que el cargo coincida con lo que usas en el código (ej: "Quimico Farmaceutico")
+INSERT INTO empleados (id, apellido, cargo, dni, estado, nombre, telefono, usuario_id) VALUES
+(1, 'López Barnechea', 'Auxiliar de Toxicologia', '54665478', 'Activo', 'Ana Lucía', '987654321', 2),
+(2, 'Cantero Jimenez', 'Quimico Farmaceutico', '46546512', 'Activo', 'Alan', '978465789', 3),
+(3, 'Tavara Madrid', 'Auxiliar de Dosaje', '12332154', 'Activo', 'Juan', '913254632', 4),
+(4, 'López2 Barnechea2', 'Auxiliar de Toxicologia', '53665478', 'Activo', 'Ana Lucía', '987614321', 5),
+(5, 'Cantero2 Jimenez2', 'Quimico Farmaceutico', '46346512', 'Activo', 'Alan', '978465189', 6),
+(6, 'Tavara2 Madrid2', 'Auxiliar de Dosaje', '12332354', 'Activo', 'Juan', '913214632', 7);
+
