@@ -1,0 +1,19 @@
+powershell
+/////////
+New-NetFirewallRule -DisplayName "OFICRI_Puertos" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8080,8081,9000,3307
+/////
+docker-compose up --build
+////
+1. Configurar la IP Fija en Windows
+Ve a la pantalla de Configuración > Red e Internet > Wi-Fi > Propiedades de Jorge jara que tenías abierta y pulsa Editar en "Asignación de IP". Coloca estos datos exactos:
+
+Dirección IP: 
+192.168.1.250
+Longitud del prefijo de subred: 
+24
+Puerta de enlace: 
+192.168.1.1
+DNS preferido: 
+8.8.8.8
+DNS alternativo: 
+8.8.4.4
